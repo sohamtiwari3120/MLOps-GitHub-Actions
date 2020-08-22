@@ -20,4 +20,4 @@ jobs:
          
          echo "## Validating results by region" >> report.md
          cml-publish by_region.png --md >> report.md
-         cml-send-comment report.d
+         cml-send-comment report.md
