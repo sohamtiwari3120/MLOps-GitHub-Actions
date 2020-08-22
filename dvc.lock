@@ -1,0 +1,30 @@
+process:
+  cmd: python process_data.py
+  deps:
+  - path: data_raw.csv
+    md5: a6aec8da63a5fa2619af025a76746f29
+  - path: process_data.py
+    md5: ca8bb9cc108ffa3bbf6a7e6385fd9aaf
+  outs:
+  - path: data_processed.csv
+    md5: 3b20a3a6ac0570f3de28b77d1e88f932
+get_data:
+  cmd: python get_data.py
+  deps:
+  - path: get_data.py
+    md5: 79726d6ce3a2dbf812f6b8034f2dff27
+  outs:
+  - path: data_raw.csv
+    md5: a6aec8da63a5fa2619af025a76746f29
+train:
+  cmd: python train.py
+  deps:
+  - path: data_processed.csv
+    md5: 3b20a3a6ac0570f3de28b77d1e88f932
+  - path: train.py
+    md5: 80ad33d8caf823fc1d5cdefcb5b9490a
+  outs:
+  - path: by_region.png
+    md5: 9bf8e664f6b734bb6387a6d10f2ad18e
+  - path: metrics.json
+    md5: f4844c28505568f336c5f91db3f1beb3
